@@ -1,0 +1,85 @@
+[build-system]
+requires = [
+    "setuptools>=64",
+    "setuptools-scm>=8.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spypi"
+dynamic = ["version"]  # SCM versioning using tags
+requires-python = ">=3.11"
+description = "A Raspberry Pi security camera with person detection."
+readme = "README.md"
+authors = [
+    { name = "Avi Vajpeyi", email = "avi.vajpeyi@gmail.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.9",
+]
+dependencies = [
+    "opencv-python",
+    "mediapipe",
+    "pygame"
+]
+
+[project.optional-dependencies]
+pi = [
+    "Picamera2"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/spypi"
+"Bug Reports" = "https://github.com/yourusername/spypi/issues"
+Source = "https://github.com/yourusername/spypi"
+
+[tool.setuptools_scm]
+# Write the SCM version to the following file.
+write_to = "src/spypi/_version.py"
+
+[tool.semantic_release]
+version_variable = "src/spypi/_version.py:__version__"
+version_source = "commit"
+commit_version_number = true
+commit_subject = "chore(release): {version}"
+commit_message = "chore(release): {version}"
+tag_format = "v{version}"
+no_local_version = true
+
+[tool.semantic_release.changelog]
+changelog_file = "CHANGELOG.md"
+
+[tool.setuptools]
+package-data = { "spypi" = ["py.typed"] }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
