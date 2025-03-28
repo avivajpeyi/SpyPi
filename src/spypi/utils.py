@@ -1,12 +1,15 @@
 import cv2
 import numpy as np
 import pygame
+import os
+
+HERE = os.path.dirname(__file__)
 
 # Initialize pygame mixer.
 pygame.mixer.init()
 
 # Load the greeting sound.
-_greeting_sound = pygame.mixer.Sound("sfx/hello_youre_on_camera.mp3")
+_greeting_sound = pygame.mixer.Sound(f"{HERE}/sfx/hello_youre_on_camera.mp3")
 
 def play_greeting():
     """Play the greeting sound using pygame."""
