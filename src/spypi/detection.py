@@ -6,7 +6,7 @@ from datetime import datetime
 from threading import Thread
 
 from .camera import Camera
-from .sound import play_greeting
+from .utils import play_greeting
 from .utils import visualize
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision

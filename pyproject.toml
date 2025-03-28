@@ -55,7 +55,8 @@ no_local_version = true
 changelog_file = "CHANGELOG.md"
 
 [tool.setuptools]
-package-data = { "spypi" = ["py.typed"] }
+package-data = { "spypi" = ["py.typed", "sfx/*.mp3"] }
+include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -86,4 +87,6 @@ testpaths = ["tests"]
 
 
 [project.scripts]
-pi-sentinel = "spypi.__main__:main"
+spypi = "spypi.__main__:main"
+
+
