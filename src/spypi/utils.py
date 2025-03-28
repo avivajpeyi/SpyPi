@@ -6,7 +6,7 @@ import pygame
 pygame.mixer.init()
 
 # Load the greeting sound.
-_greeting_sound = pygame.mixer.Sound("hello_youre_on_camera.mp3")
+_greeting_sound = pygame.mixer.Sound("sfx/hello_youre_on_camera.mp3")
 
 def play_greeting():
     """Play the greeting sound using pygame."""
