@@ -83,3 +83,7 @@ profile = "black"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+
+[project.scripts]
+pi-sentinel = "spypi.__main__:main"
